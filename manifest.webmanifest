@@ -1,0 +1,32 @@
+{
+  "name": "Trhlina — hra ve skutečném městě",
+  "short_name": "Trhlina",
+  "description": "Hra ve skutečném městě, které zapomíná: kudy projdeš s lucernou, tam si ulice vzpomene a rozsvítí se. Pomáhej sousedům, uzavírej trhliny a zjisti, kam zmizeli lampáři.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#07080f",
+  "theme_color": "#07080f",
+  "lang": "cs",
+  "icons": [
+    {
+      "src": "ikona-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "ikona-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "ikona-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
