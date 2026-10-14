@@ -1,0 +1,36 @@
+# Stáhne skutečné dlaždice OpenFreeMap pro Kateřinky (Opava) do složky test-tiles/,
+# aby se dal převodník hry ověřit na pravém formátu. Spouští se ručně (Actions → Run workflow)
+# nebo po změně tohoto souboru. Po ověření jde workflow i složka smazat.
+name: test-tiles
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/test-tiles.yml"]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stáhnout TileJSON a dlaždice z14 (Kateřinky, 560 m)
+        run: |
+          set -e
+          mkdir -p test-tiles
+          curl -fsSL -A "Trhlina-test (github actions)" https://tiles.openfreemap.org/planet -o test-tiles/planet.json
+          URL=$(python3 -c "import json; print(json.load(open('test-tiles/planet.json'))['tiles'][0])")
+          echo "šablona: $URL" | tee test-tiles/README.txt
+          for xy in "9006 5559" "9006 5560" "9007 5559" "9007 5560"; do
+            set -- $xy
+            u=$(echo "$URL" | sed "s/{z}/14/; s/{x}/$1/; s/{y}/$2/")
+            curl -fsSL -A "Trhlina-test (github actions)" -D test-tiles/14-$1-$2.headers "$u" -o test-tiles/14-$1-$2.pbf
+            ls -l test-tiles/14-$1-$2.pbf
+          done
+          date -u >> test-tiles/README.txt
+      - name: Uložit do repozitáře
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add test-tiles
+          git commit -m "test-tiles: skutečné dlaždice OpenFreeMap pro Kateřinky" || echo "nic nového"
+          git push
