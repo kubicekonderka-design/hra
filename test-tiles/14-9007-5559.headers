@@ -1,0 +1,21 @@
+HTTP/2 200 
+date: Wed, 14 Oct 2026 20:29:17 GMT
+content-type: application/vnd.mapbox-vector-tile
+server: cloudflare
+last-modified: Sun, 11 Oct 2026 13:58:58 GMT
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+expires: Sat, 11 Oct 2036 20:29:17 GMT
+cache-control: max-age=315360000
+cache-control: public
+etag: W/"6acb9622-113d"
+access-control-allow-origin: *
+x-robots-tag: noindex, nofollow
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+x-ofm-debug: specific PBF planet 20261011_080001_pt
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=wmUYPrZBnXHgLgFizu%2BWGyxWhQbAJLDuM4HqfORKCSTisxeSKQVx8Xlopytt1mxy9Io58UjejNdROG6T4q%2Fd5PCHUMpZRNFqFPsVNJscpf2vUTJDUkwrFVOUFBVBIWaJWLpVhBa02g%3D%3D"}]}
+cf-cache-status: MISS
+vary: accept-encoding
+x-content-type-options: nosniff
+cf-ray: a4a955d3da09cdf7-SEA
+alt-svc: h3=":443"; ma=86400
+
